@@ -2,9 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/config-server-service" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/configurations-repo" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/discovery-service" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/gateway-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/enset-ms-architecture-tp-configuration" vcs="Git" />
   </component>
 </project>

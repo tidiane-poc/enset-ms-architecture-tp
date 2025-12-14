@@ -1,0 +1,3 @@
+[submodule "enset-ms-architecture-tp-configuration"]
+	path = enset-ms-architecture-tp-configuration
+	url = git@github.com:tidiane-poc/enset-ms-architecture-tp-configuration.git
