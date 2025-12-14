@@ -7,6 +7,7 @@ import net.enset.bdcc.customerservice.dtos.CustomerCreate;
 import net.enset.bdcc.customerservice.dtos.CustomerPresentation;
 import net.enset.bdcc.customerservice.dtos.CustomerUpdate;
 import net.enset.bdcc.customerservice.exceptions.CustomerAlreadyExistException;
+import net.enset.bdcc.customerservice.exceptions.CustomerNotFoundException;
 import net.enset.bdcc.customerservice.mapper.CustomerMapper;
 import net.enset.bdcc.customerservice.repositories.CustomerRepository;
 import net.enset.bdcc.customerservice.services.CustomerService;
@@ -40,14 +41,14 @@ public class CustomerServiceImpl implements CustomerService {
         log.info("Retrieving Customer with id : {}", id);
         return customerRepository.findById(id)
                 .map(customerMapper::toPresentation)
-                .orElseThrow(() -> new RuntimeException(CUSTOMER_NOT_FOUND_MESSAGE));
+                .orElseThrow(() -> new CustomerNotFoundException(CUSTOMER_NOT_FOUND_MESSAGE));
     }
 
     @Override
     public void delete(Long id) {
         log.info("Deleting Customer with id : {}", id);
         var existsById = customerRepository.existsById(id);
-        if(!existsById) throw new RuntimeException(CUSTOMER_NOT_FOUND_MESSAGE);
+        if(!existsById) throw new CustomerNotFoundException(CUSTOMER_NOT_FOUND_MESSAGE);
         customerRepository.deleteById(id);
         log.info("Customer Deleted successfully : {}",id);
     }
@@ -55,7 +56,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerPresentation update(Long id, CustomerUpdate customer) {
         log.info("Updating Customer with id : {}", id);
-        var entity = customerRepository.findById(id).orElseThrow(() -> new RuntimeException(CUSTOMER_NOT_FOUND_MESSAGE));
+        var entity = customerRepository.findById(id).orElseThrow(() -> new CustomerNotFoundException(CUSTOMER_NOT_FOUND_MESSAGE));
         entity.setName(customer.getName());
         entity.setTel(customer.getTel());
         entity.setEmail(customer.getEmail());
