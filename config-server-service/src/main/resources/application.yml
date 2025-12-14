@@ -1,0 +1,17 @@
+
+spring:
+  application:
+    name: config-server-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${HOME}/Workspace/ENSET/Syste?mes Distribue?s et DevOps/enset-event-driven-arch-tp/configurations-repo
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 9999
+
