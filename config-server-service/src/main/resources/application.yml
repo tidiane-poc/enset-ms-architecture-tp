@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: file://${HOME}/Workspace/ENSET/Syste?mes Distribue?s et DevOps/enset-event-driven-arch-tp/configurations-repo
+          uri: https://github.com/tidiane-poc/enset-ms-architecture-tp-configuration
 
 eureka:
   client:
